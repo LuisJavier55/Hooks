@@ -4,7 +4,7 @@ import { useState } from "react"
 export const SinpleForm = () => {
 
   const [estado, setEstado] = useState({
-    name: "username",
+    name: "Luis",
     email: "Luis@google.com",
   })
 //desestructurar el estado 
@@ -12,9 +12,12 @@ export const SinpleForm = () => {
 
 //funcion del evento onchage la cual envia el evento y ese evento desestructura un 
   const onEventEstado = ({target}) =>{
-    console.log(target);
-    console.log(target.value);
-
+    const {name, value} = target; //desestructuramos en tagert con el fin de extraer su numbre y valor del evento onchange 
+    
+    setEstado({
+      ...estado,
+      [ name ]:value
+    });
 
   }
 
@@ -28,7 +31,7 @@ export const SinpleForm = () => {
     <input type="text"
     className="form-control"
     placeholder="Username"
-    name="username"
+    name="name"
     value={name}
     //funcion que se envia como prop
     onChange={onEventEstado} />
