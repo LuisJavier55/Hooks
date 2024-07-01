@@ -27,7 +27,7 @@ export const SinpleForm = () => {
 
     <input type="text"
     className="form-control"
-    placeholder="Username"
+    placeholder="username"
     name="username"
     value={name}
     //funcion que se envia como prop
