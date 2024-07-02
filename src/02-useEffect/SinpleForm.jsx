@@ -4,13 +4,19 @@ import { useState } from "react"
 export const SinpleForm = () => {
 
   const [estado, setEstado] = useState({
+<<<<<<< HEAD
     username: "",
     email: "",
+=======
+    name: "Luis",
+    email: "Luis@google.com",
+>>>>>>> a4b059eea2abef7e68587c693fc73e56aa9d393a
   })
 //desestructurar el estado 
   const {username, email} = estado
 
 //funcion del evento onchage la cual envia el evento y ese evento desestructura un 
+<<<<<<< HEAD
   const onEventEstado = ({ target }) =>{
 
     console.log(target);// evento mas target, el cual nos trae el input 
@@ -24,6 +30,15 @@ export const SinpleForm = () => {
 //esto nos ayuda a hacer un cambio cuando nuestro estado cambie(inputo), con los OnEventEstado y lo integra a un nuevo objeto.
 //el espread operation que tenemos es dinamico, si hay mas valorezs, se integraran por defecto en nuestro cambio de estado.
 
+=======
+  const onEventEstado = ({target}) =>{
+    const {name, value} = target; //desestructuramos en tagert con el fin de extraer su numbre y valor del evento onchange 
+    
+    setEstado({
+      ...estado,
+      [ name ]:value
+    });
+>>>>>>> a4b059eea2abef7e68587c693fc73e56aa9d393a
 
    
   }
@@ -38,8 +53,13 @@ export const SinpleForm = () => {
     <input type="text"
     className="form-control"
     placeholder="Username"
+<<<<<<< HEAD
     name="username" // el username esta vinculado con el de nuestro objeto useState = el cual si nosotros ponemos mal uno el input no funcionara
     value={username}
+=======
+    name="name"
+    value={name}
+>>>>>>> a4b059eea2abef7e68587c693fc73e56aa9d393a
     //funcion que se envia como prop
     onChange={onEventEstado} />
     
