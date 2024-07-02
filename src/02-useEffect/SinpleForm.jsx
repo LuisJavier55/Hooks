@@ -17,11 +17,13 @@ export const SinpleForm = () => {
 
     console.log(target);// evento mas target, el cual nos trae el input 
 
-    const {name, value} = target; //desestructuracion de target trayendo los atrubutos de nuestra etiqueta
+    // const {name, value} = target; //desestructuracion de target trayendo los atrubutos de nuestra etiqueta
 
     setEstado({ //funcion en el cual trae nuestro estado actual 
       ...estado, //spread operation trae todo el contenido de nuestro objeto 
-      [name]:value, // si hay un cambio, en las etiquetas=atributos se cambia tanto username o email y valores de name y value se integran   
+      [target.name]:target.value, // si hay un cambio, en las etiquetas=atributos se cambia tanto username o email y valores de name y value se integran   
+      //podemos utlizar tambien la desestructuraciond el target para solo  traer los valores 
+              //  -> [name]:value,
     })
   }
 //esto nos ayuda a hacer un cambio cuando nuestro estado cambie(inputo), con los OnEventEstado y lo integra a un nuevo objeto.
