@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Message } from "./Message"
 
 
 export const SinpleForm = () => {
 
   const [estado, setEstado] = useState({
-    username: "",
+    username: "Luis",
     email: "",
     
 
@@ -29,6 +30,19 @@ export const SinpleForm = () => {
 //esto nos ayuda a hacer un cambio cuando nuestro estado cambie(inputo), con los OnEventEstado y lo integra a un nuevo objeto.
 //el espread operation que tenemos es dinamico, si hay mas valorezs, se integraran por defecto en nuestro cambio de estado.
 
+   useEffect(()=>{
+    /* console.log('esto es un cambio de estado')*/
+   },[])
+
+   useEffect(()=> {
+    /* console.log('esto es un cambio en el nombre');*/
+   },[username])
+
+   useEffect(()=>{
+    /* console.log('esto es un cambio de email');*/
+   },[email]);
+
+
   return (
     <>
     <h1>Simple Form</h1>
@@ -51,8 +65,14 @@ export const SinpleForm = () => {
     name="email"
     value={email}
     onChange={onEventEstado} />
+
+    {//condicion si (el imput es igual al nombre del usuario ejecuta componente Mensaje)
+      (username === "Luis3")&& <Message />
+    }
+
     
     </>
+
   )
  
 }
