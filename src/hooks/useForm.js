@@ -12,15 +12,20 @@ export const useForm = (valorInicial = {}) => {// "valorInicial" = a objeto que 
         })
       }
 
-      const onBorrarDatos = () =>{
+      const onBorrarDatos = () =>{//funcion borrar 
+        /*  
         setEstado({
-            // username:'',
-            // email:'',
-            // password:'',
+          //1.Manera de vaciar los calores de mis input 
+            username:'',
+            email:'',
+            password:'',
 
         })
-      }
-
+      }*/
+      
+      //2.Manera de dejar los parametros vaicios
+      setEstado(valorInicial);
+    }
   return {
     ...estado,// spread nos ayuda a obtner nuestros paramatros del objeto, el cual se obtiene con "valorInicial", el cual es un objeto que se envia por "useForm"
     estado,

@@ -18,7 +18,7 @@ export const SinpleForm = () => {
 
     console.log(target);// evento mas target, el cual nos trae el input 
 
-    // const {name, value} = target; //desestructuracion de target trayendo los atrubutos de nuestra etiqueta
+     //const {name, value} = target; //desestructuracion de target trayendo los atrubutos de nuestra etiqueta
 
     setEstado({ //funcion en el cual trae nuestro estado actual 
       ...estado, //spread operation trae todo el contenido de nuestro objeto 
@@ -65,6 +65,7 @@ export const SinpleForm = () => {
     name="email"
     value={email}
     onChange={onEventEstado} />
+
 
     {//condicion si (el imput es igual al nombre del usuario ejecuta componente Mensaje)
       (username === "Luis3")&& <Message />
