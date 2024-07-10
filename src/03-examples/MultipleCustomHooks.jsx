@@ -1,10 +1,14 @@
+import { useCounter } from "../hooks/useCounter";
 import { useFetch } from "../hooks/useFetch"
+import { LoadingMenssage } from "./LoadingMenssage";
+import { PockemonCard } from "./PockemonCard";
 
 
 export const MultipleCustomHooks = () => {
 
-    //custom Hoook useFetch
-    const {data,isLoading,hasError,error}= useFetch();
+  const {hookcontador,sumaHookContador,restaHookContador} = useCounter(1)
+  //custom Hoook useFetch
+    const {data,isLoading,hasError,error}= useFetch(`https://pokeapi.co/api/v2/pokemon/${hookcontador}`);
 
 
   return (
@@ -12,11 +16,26 @@ export const MultipleCustomHooks = () => {
     <h2>Pockemon</h2>
     <hr />
 
-    {(isLoading)&& "Cargando..."}
-
+    {(isLoading)&& <LoadingMenssage/>}
+    {
+      <PockemonCard fnCard = {data.id}/>
+    }
     {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
 
-    <h2>{data?.name}</h2>
+    
+
+    <button 
+    className="btn btn-primary"
+    onClick={()=>hookcontador > 1?restaHookContador(1): null}
+    >Aterior</button>
+
+    <button 
+    className="btn btn-primary" 
+    onClick={()=> sumaHookContador(1)}
+    >Siguiente</button>
+
+  <p>{hookcontador}</p>
+
     </>
   )
 }

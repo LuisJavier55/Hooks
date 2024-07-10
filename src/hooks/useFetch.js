@@ -2,7 +2,7 @@ import { useEffect,useState } from "react"
 
 
             //custom Hook ->useFetch
-export const useFetch = () => {
+export const useFetch = (urljsx) => {//pedimos desde nuestro MultiplecustomHook la url de la api 
     //parametros que vamos enviar por defecto a nuestro componente
    const [fetch_js, setFetch_js] = useState({
     data:null,
@@ -15,15 +15,26 @@ export const useFetch = () => {
    //useEffect nos correra en la primera renderizacion 
    useEffect(()=>{
     conexionApi();
-   },[])
+   },[urljsx]) //peticion fect cuando el url cambie
+
+   const setLoadingState = () =>{
+   setFetch_js( {//hace cambio en nuestro estado
+        data:null,
+        isLoading:true,
+        hasError: false,
+        error: null
+    })
+   }
+
 
 //    conexion api
    const conexionApi = async() => {
 
+    setLoadingState(); // cargara primero el el estado de carga 
     //sleep
-    await new Promise(resolv => setTimeout(resolv,2000));
+    await new Promise(resolv => setTimeout(resolv,1500));// nos dara un tiempo estimado para la ejecucion del fetch 
 
-    const url  =  'https://pokeapi.co/api/v2/pokemon/ditto';
+    const url  = urljsx;
     const resp = await fetch(url);
 // si nuestra respuesta tiene un error 
     if(!resp.ok){
@@ -67,4 +78,3 @@ export const useFetch = () => {
     }
 }
 
- 

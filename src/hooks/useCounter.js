@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 // exportamo y inicimos hook (funcion)
-export const useCounterValores = (valorInicial = 40) =>{
+export const useCounter = (valorInicial = 10) =>{
 // useState de valro
     const [hookcontador, setHookContador] = useState(valorInicial);
 

@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export const useForm = (valorInicial = {}) => {// "valorInicial" = a objeto que se envia por useForm de "FROMCONCUSTOMHOOK"
+export const useForm = (valorInicial = {}) => {// "valorInicial" = a objeto que se envia por useForm de "FROMCONCUSTOMHOOK" y es un valor vacio 
     const [estado, setEstado] = useState(valorInicial) // valor a llamar "estado" y ValorInicial = {}
      
 

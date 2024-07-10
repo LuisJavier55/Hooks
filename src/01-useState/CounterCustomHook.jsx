@@ -1,9 +1,9 @@
-import { useCounterValores } from "../hooks/useCounter"
+import { useCounter } from "../hooks/useCounter"
 
 
 export const CounterCustomHook = () => {
 //nuestro custom hook yamado desde el return y sus parametros                                       
-    const {hookcontador, setHookContador, restaHookContador,sumaHookContador,resetHookContador} = useCounterValores()
+    const {hookcontador, setHookContador, restaHookContador,sumaHookContador,resetHookContador} = useCounter()
 
 
   return (

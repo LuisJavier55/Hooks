@@ -16,7 +16,7 @@ export const FormConCustomHook = () => {
 
   return (
     <>
-    <h1>Simple Form</h1>
+    <h1>Formulario con Custom Hook</h1>
 
     <hr />
 
