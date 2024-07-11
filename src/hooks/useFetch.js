@@ -1,5 +1,7 @@
 import { useEffect,useState } from "react"
 
+//objeto creado llamado localCache para almacenar peticiones
+const localCache = {};
 
             //custom Hook ->useFetch
 export const useFetch = (urljsx) => {//pedimos desde nuestro MultiplecustomHook la url de la api 
@@ -29,6 +31,18 @@ export const useFetch = (urljsx) => {//pedimos desde nuestro MultiplecustomHook 
 
 //    conexion api
    const conexionApi = async() => {
+
+    //condision para verificar, si tiene un valor dentro, dejar al mismo estado si es que estan los mismo valores 
+    if(localCache[urljsx]){
+        console.log('Usando Cache');
+        setFetch_js({
+            data:localCache[urljsx],
+            isLoading:false,
+            hasError:false,
+            error:null
+        });
+        return;
+    }
 
     setLoadingState(); // cargara primero el el estado de carga 
     //sleep
@@ -62,8 +76,11 @@ export const useFetch = (urljsx) => {//pedimos desde nuestro MultiplecustomHook 
             error:null
         })
 
+        //llenar datos con nuestras peticiones https
+        localCache[urljsx] = data;
 
-    console.log({data});
+
+    // console.log({data});
   
 
 

@@ -16,17 +16,29 @@ export const MultipleCustomHooks = () => {
     <h2>Pockemon</h2>
     <hr />
 
-    {(isLoading)&& <LoadingMenssage/>}
     {
-      <PockemonCard fnCard = {data.id}/>
+    (isLoading)
+    ? 
+    <LoadingMenssage/>
+    : 
+    <PockemonCard 
+    id={hookcontador} 
+    name={data.name}
+    sprites={[
+      data.sprites.front_shiny
+    ]}
+    />
     }
+    
+      
+    
     {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
 
     
 
     <button 
     className="btn btn-primary"
-    onClick={()=>hookcontador > 1?restaHookContador(1): null}
+    onClick={()=>hookcontador>1?restaHookContador(1): null}
     >Aterior</button>
 
     <button 

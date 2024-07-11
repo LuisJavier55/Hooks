@@ -8,7 +8,11 @@ export const PockemonCard = ({id,name,sprites={}}) => {
 
 {/* Imagenes */}
         <div>
-
+          {
+            sprites.map(spri => (
+              <img key={spri} src={spri} alt={spri} />
+            ))
+          }
         </div>
     </section>
   )
