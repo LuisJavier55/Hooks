@@ -8,8 +8,7 @@ const focusjalar = useRef();
  
 const OnSeleccion =()=>{
 
-    focusjalar.current.select();
-
+   focusjalar.current.focus(); //!accedenmos al DOM con current.
 
 }
 
@@ -26,7 +25,7 @@ const OnSeleccion =()=>{
     className="form-control"
     />
 
-    <button onClick={OnSeleccion}>seleccionar</button>
+    <button className="btn btn-primary mt-2" onClick={OnSeleccion}>seleccionar</button>
     </>
 
   )
